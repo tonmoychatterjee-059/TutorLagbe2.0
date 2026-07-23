@@ -1,0 +1,1 @@
+<?php require_once __DIR__ . '/../includes/bootstrap.php'; unset($_SESSION['admin_id'],$_SESSION['admin_name'],$_SESSION['role']); flash('admin_error','You have been logged out.'); header('Location: '.base_url('admin/login.php')); exit;
