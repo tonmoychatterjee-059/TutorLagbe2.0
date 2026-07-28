@@ -1,2 +1,0 @@
-<?php require_once __DIR__ . '/admin_auth_check.php'; $pageTitle = $pageTitle ?? 'Admin'; $adminLayout = true; require __DIR__ . '/../../includes/header.php'; ?>
-<link href="<?= base_url('assets/css/admin.css') ?>" rel="stylesheet"><body class="admin-body"><div class="d-flex"><?php require __DIR__ . '/admin_sidebar.php'; ?><div class="admin-main flex-grow-1"><?php require __DIR__ . '/admin_navbar.php'; ?><main class="admin-content">
