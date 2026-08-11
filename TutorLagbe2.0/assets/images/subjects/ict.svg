@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" role="img">
+  <title>ICT</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ECFFF8"/>
+      <stop offset="100%" stop-color="#D4F8EA"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="32" fill="url(#g)"/>
+  <circle cx="112" cy="90" r="62" fill="#DDFBF0"/>
+  <circle cx="486" cy="266" r="70" fill="#DDFBF0"/>
+  <rect x="48" y="58" width="504" height="244" rx="28" fill="#fff" opacity=".78"/>
+  <g fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="156" y="112" width="122" height="92" rx="14"/>
+    <path d="M182 136h26"/>
+    <path d="M182 160h46"/>
+    <path d="M182 184h62"/>
+    <rect x="334" y="112" width="120" height="92" rx="14"/>
+    <path d="M360 136h22"/>
+    <path d="M360 160h42"/>
+    <path d="M360 184h58"/>
+    <path d="M260 250h80"/>
+  </g>
+  <text x="56" y="320" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#115e59">ICT</text>
+</svg>

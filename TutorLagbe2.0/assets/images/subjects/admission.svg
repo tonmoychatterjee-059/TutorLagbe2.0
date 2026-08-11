@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" role="img">
+  <title>Admission Coaching</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF7E6"/>
+      <stop offset="100%" stop-color="#FFE8B8"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="32" fill="url(#g)"/>
+  <circle cx="114" cy="82" r="60" fill="#FFEFCF"/>
+  <circle cx="482" cy="270" r="72" fill="#FFEFCF"/>
+  <rect x="48" y="58" width="504" height="244" rx="28" fill="#fff" opacity=".8"/>
+  <g fill="none" stroke="#b45309" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M156 112h110"/>
+    <path d="M156 148h144"/>
+    <path d="M156 184h88"/>
+    <path d="M334 116l36 36 60-68"/>
+    <path d="M334 214h116"/>
+    <path d="M334 246h88"/>
+  </g>
+  <text x="56" y="320" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#92400e">Admission Coaching</text>
+</svg>

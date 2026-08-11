@@ -1,0 +1,78 @@
+<?php
+require_once __DIR__.'/../includes/bootstrap.php';
+require_once __DIR__.'/../config/db.php';
+
+$errors = [];
+$email = '';
+$role = $_GET['role'] ?? 'student';
+$returnTo = trim((string) ($_GET['return_to'] ?? ''));
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $role = $_POST['role'] ?? 'student';
+    $password = $_POST['password'] ?? '';
+    $returnTo = trim((string) ($_POST['return_to'] ?? ''));
+
+    if (!verify_csrf($_POST['csrf_token'] ?? null)) {
+        $errors[] = 'Your session expired.';
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Enter a valid email address.';
+    }
+    if (!in_array($role, ['student', 'tutor'], true)) {
+        $errors[] = 'Select a valid account type.';
+    }
+
+    if (!$errors) {
+        try {
+            $verified = $role === 'tutor' ? ' AND is_verified=1' : '';
+            $q = db()->prepare("SELECT id, full_name, password, role FROM users WHERE email=:email AND role=:role AND is_suspended=0$verified LIMIT 1");
+            $q->execute(['email' => $email, 'role' => $role]);
+            $u = $q->fetch();
+
+            if (!$u || !password_verify($password, $u['password'])) {
+                $errors[] = $role === 'tutor'
+                    ? 'Tutor account is not approved yet, or credentials are incorrect.'
+                    : 'Incorrect email or password.';
+            } else {
+                session_regenerate_id(true);
+                $_SESSION['user_id'] = $u['id'];
+                $_SESSION['user_name'] = $u['full_name'];
+                $_SESSION['user_role'] = $u['role'];
+
+                if ($returnTo !== '' && !preg_match('~^(?:https?:)?//~i', $returnTo)) {
+                    header('Location: ' . base_url(ltrim($returnTo, '/')));
+                    exit;
+                }
+
+                header('Location: ' . base_url('index.php'));
+                exit;
+            }
+        } catch (Throwable $e) {
+            $errors[] = 'Unable to sign in.';
+        }
+    }
+}
+
+$pageTitle = 'Log in';
+require __DIR__.'/../includes/header.php';
+require __DIR__.'/../includes/navbar.php';
+?>
+<main class="auth-page">
+  <section class="auth-card">
+    <h1 class="h3 text-center">Welcome back</h1>
+    <?php if($errors):?><div class="alert alert-danger"><?=e(implode(' ',$errors))?></div><?php endif;?>
+    <form method="post">
+      <input type="hidden" name="csrf_token" value="<?=e(csrf_token())?>">
+      <input type="hidden" name="return_to" value="<?=e($returnTo)?>">
+      <div class="role-pills d-flex mb-4">
+        <input id="student" type="radio" name="role" value="student" <?=$role==='student'?'checked':''?>><label for="student">Student login</label>
+        <input id="tutor" type="radio" name="role" value="tutor" <?=$role==='tutor'?'checked':''?>><label for="tutor">Tutor login</label>
+      </div>
+      <input class="form-control mb-3" type="email" name="email" placeholder="Email address" value="<?=e($email)?>" required>
+      <input class="form-control mb-4" type="password" name="password" placeholder="Password" required>
+      <button class="btn btn-brand w-100">Log in</button>
+    </form>
+  </section>
+</main>
+<?php require __DIR__.'/../includes/footer.php';?>

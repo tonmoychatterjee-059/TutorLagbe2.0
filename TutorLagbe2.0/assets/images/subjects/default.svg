@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" role="img">
+  <title>Subject</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EDF7F2"/>
+      <stop offset="100%" stop-color="#DDF0E7"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="32" fill="url(#g)"/>
+  <rect x="48" y="58" width="504" height="244" rx="28" fill="#fff" opacity=".78"/>
+  <g fill="none" stroke="#087f5b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M180 126h240"/>
+    <path d="M180 172h200"/>
+    <path d="M180 218h154"/>
+    <circle cx="430" cy="198" r="42"/>
+  </g>
+  <text x="56" y="320" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#0f3b2c">TutorLagbe</text>
+</svg>

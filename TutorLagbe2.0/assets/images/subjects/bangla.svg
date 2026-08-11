@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360" role="img">
+  <title>Bangla</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F1F0FF"/>
+      <stop offset="100%" stop-color="#DDD9FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="32" fill="url(#g)"/>
+  <circle cx="492" cy="90" r="68" fill="#E4E1FF"/>
+  <rect x="48" y="58" width="504" height="244" rx="28" fill="#fff" opacity=".78"/>
+  <g fill="none" stroke="#6d28d9" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M156 120c54 0 82 28 82 60 0 43-36 72-86 72-22 0-41-7-58-18"/>
+    <path d="M258 122c0 0 22 0 22 22s-22 22-22 22h-42"/>
+    <path d="M216 166h56c27 0 44 18 44 38 0 24-20 38-48 38h-52"/>
+    <path d="M350 122v120"/>
+    <path d="M350 122h54"/>
+    <path d="M350 182h44"/>
+  </g>
+  <text x="56" y="320" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#5b21b6">Bangla</text>
+</svg>
